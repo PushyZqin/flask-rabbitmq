@@ -7,6 +7,13 @@ setup(
     author_email='1437876073@qq.com',
     url='https://github.com/PushyZqin/flask-rabbitmq',
     description=u'Let rabbitmq use flask development more easy! ! !',
-    packages=find_packages(exclude=['*test*', '*example*', '*documentation*']),
+    packages=find_packages(
+        exclude=[
+            "*test*",
+            "*build*",
+            "*__pycache__*"
+        ]
+    ),
+    include_package_data=True,
     install_requires=['pika']
 )
