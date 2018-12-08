@@ -21,7 +21,8 @@ class RabbitMQ(object):
         )
         self._connection = pika.BlockingConnection(
             pika.ConnectionParameters(
-                self.config['RPC_HOST'],
+                host=self.config['RPC_HOST'],
+                port=self.config.get('RPC_PORT', 5672),
                 credentials=self.credentials
             ))
         self._channel = self._connection.channel()
