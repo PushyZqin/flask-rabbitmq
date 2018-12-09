@@ -187,7 +187,9 @@ class RabbitMQ(object):
         :param result 服务端返回的消息
         """
         self.data[key]['isAccept'] = True # 设置为已经接受到服务端返回的消息
-        self.data[key]['result'] = str(result)
+        if isinstance(result, bytes):
+            result = result.decode()
+        self.data[key]['result'] = result
         self._channel.queue_delete(self.data[key]['callbackQueue'])  # 删除客户端声明的回调队列
 
     def on_response(self, ch, method, props, body):
