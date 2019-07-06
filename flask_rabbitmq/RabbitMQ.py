@@ -95,8 +95,8 @@ class RabbitMQ(object):
 
     def basic_consuming(self, queue_name, callback):
         self._channel.basic_consume(
-            consumer_callback=callback,
-            queue=queue_name
+            queue_name,
+            callback
         )
 
     def consuming(self):
