@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
     name='flask-rabbitmq',
@@ -7,6 +7,6 @@ setup(
     author_email='1437876073@qq.com',
     url='https://github.com/PushyZqin/flask-rabbitmq',
     description=u'Let rabbitmq use flask development more easy! ! !',
-    packages=['flask_rabbitmq'],
+    packages=find_packages(),
     install_requires=['pika']
 )
